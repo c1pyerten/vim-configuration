@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype on                  " required // I Change off to on .................
+"filetype on                  " required // I Change off to on .................
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -25,10 +25,10 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'} ------------------------ Deleted
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 " 我的color_sample_pack and randomColorPicker   
 " 配色包 
 "Plugin 'color_sample_pack'
@@ -50,8 +50,12 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'sunuslee/vim-plugin-random-colorscheme-picker'
 Bundle 'majutsushi/tagbar'
 Bundle 'ctrlpvim/ctrlp.vim'
-"Bundle 'SirVer/ultisnips'
-"Bundle 'honza/vim-snippets'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'terryma/vim-expand-region'
+Bundle 'Raimondi/delimitMate'
+Bundle 'easymotion/vim-easymotion'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 "-----------------------------------
 
 " All of your Plugins must be added before the following line
@@ -118,6 +122,8 @@ let g:indent_guides_guide_size=1
 nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 
+
+
 "-----------------ultisnips Configuration---------------------------
 " Track the engine.
 "Plugin 'SirVer/ultisnips'
@@ -132,7 +138,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=['UltiSnips']    "  configuration dir
+"let g:UltiSnipsSnippetDirectories=['UltiSnips']    "  configuration dir
 
 
 
@@ -216,6 +222,12 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
 
+"--------------Nerdcommenter Configuration ---------
+let g:NERDSpaceDelims=1
+
+
+
+
 
 "--------------------------------Syntastic Configuration------------------
 set statusline+=%#warningmsg#
@@ -235,6 +247,74 @@ let g:syntastic_check_on_wq = 0
 "--------------------------Tagbar Configuration-------------
 nmap <F8> :TagbarToggle<CR>
 autocmd VimEnter * Tagbar
+
+
+
+
+
+"--------------------------CtrlP Configuration--------------
+let g:ctrlp_map = '<leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+map <leader>f :CtrlPMRU<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+    \ }
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+
+
+
+
+
+
+
+"-------------------------rainbow-parenthese----------
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+
+
+
+"------------expand-region ---------------
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
+" Extend the global default (NOTE: Remove comments in dictionary before sourcing)
+call expand_region#custom_text_objects({
+      \ "\/\\n\\n\<CR>": 1, 
+      \ 'a]' :1, 
+      \ 'ab' :1, 
+      \ 'aB' :1, 
+      \ 'ii' :0, 
+      \ 'ai' :0, 
+      \ })
+
 
 
 
