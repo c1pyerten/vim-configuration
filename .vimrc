@@ -52,10 +52,11 @@ Bundle 'majutsushi/tagbar'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'terryma/vim-expand-region'
-Bundle 'Raimondi/delimitMate'
+"Bundle 'Raimondi/delimitMate'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
+Bundle 'tpope/vim-surround'
 "-----------------------------------
 
 " All of your Plugins must be added before the following line
@@ -63,6 +64,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
+
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -336,7 +338,7 @@ let g:molokai_original = 0
 " Another Configuration
 "
 " 定义快捷键的前缀，即<Leader>
-let mapleader=";"
+let mapleader="\<Space>"
 " 总是显示状态栏
 set laststatus=2
 " 显示光标当前位置
@@ -395,3 +397,9 @@ nnoremap <Leader>jw <C-W>j
 " vim 自身命令行模式智能补全
 set wildmenu
 
+" auto save
+let autosave=5
+" 设置快捷切换normal模式
+imap jj <Esc>
+nmap ;; <Esc>
+vmap ;; <Esc>
