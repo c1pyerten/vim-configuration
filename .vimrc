@@ -57,6 +57,8 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-surround'
+Bundle 'haya14busa/incsearch.vim'
+Bundle 'justinmk/vim-sneak'
 "-----------------------------------
 
 " All of your Plugins must be added before the following line
@@ -323,6 +325,80 @@ call expand_region#custom_text_objects({
 
 
 
+"----------------Easymotion Configuration-------
+let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+" 重复上一次操作, 类似repeat插件, 很强大
+map <Leader><leader>. <Plug>(easymotion-repeat)
+
+" example of the offcial------------
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap <leader>s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" ----Integration with incsearch
+" You can use other keymappings like <C-l> instead of <CR> if you want to
+" use these mappings as default search and somtimes want to move cursor with
+" EasyMotion.
+" function! s:incsearch_config(...) abort
+  " return incsearch#util#deepextend(deepcopy({
+  " \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  " \   'keymap': {
+  " \     "\<CR>": '<Over>(easymotion)'
+  " \   },
+  " \   'is_expr': 0
+  " \ }), get(a:, 1, {}))
+" endfunction
+" noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+" noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+
+
+
+
+
+"-----------Incsearch Configuration----------------------------
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+" :h g:incsearch#auto_nohlsearch
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+
+
+
+
+"----------------Sneak Configuration-------------------
+let g:sneak#streak = 1
+
+
+
+
+
+
+
 
 "-----------------------------General Configuration 1-------------------------------------------------------------------
 " my config
@@ -334,7 +410,7 @@ let g:molokai_original = 0
 "
 "
 
-"------------------------------General Configuation 2---------------------------------------------------------------------------------------
+"------------------------------General Configuration2---------------------------------------------------------------------------------------
 " Another Configuration
 "
 " 定义快捷键的前缀，即<Leader>
