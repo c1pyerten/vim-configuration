@@ -59,6 +59,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'tpope/vim-surround'
 Bundle 'haya14busa/incsearch.vim'
 Bundle 'justinmk/vim-sneak'
+Bundle 'vim-gitgutter'
 "-----------------------------------
 
 " All of your Plugins must be added before the following line
@@ -335,7 +336,7 @@ map <Leader><leader>l <Plug>(easymotion-lineforward)
 " 重复上一次操作, 类似repeat插件, 很强大
 map <Leader><leader>. <Plug>(easymotion-repeat)
 
-" example of the offcial------------
+" example of the offcial-------------------
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
