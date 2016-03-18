@@ -60,6 +60,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'haya14busa/incsearch.vim'
 Bundle 'justinmk/vim-sneak'
 Bundle 'vim-gitgutter'
+Bundle 'godlygeek/tabular'
+"Bundle 'tacahiroy/ctrlp-funky'
 "-----------------------------------
 
 " All of your Plugins must be added before the following line
@@ -272,6 +274,8 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
 
 
 
@@ -328,6 +332,8 @@ call expand_region#custom_text_objects({
 
 "----------------Easymotion Configuration-------
 let g:EasyMotion_smartcase = 1
+map <Leader> <Plug>(easymotion-prefix)
+
 "let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><Leader>j <Plug>(easymotion-j)
@@ -338,8 +344,8 @@ map <Leader><leader>. <Plug>(easymotion-repeat)
 
 " example of the offcial-------------------
 " <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+"map  <Leader>f <Plug>(easymotion-bd-f)
+"nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
 nmap <leader>s <Plug>(easymotion-overwin-f2)
@@ -396,6 +402,17 @@ let g:sneak#streak = 1
 
 
 
+
+
+
+"-----------------Ctrlp-funky Configuration-----
+Bundle 'tacahiroy/ctrlp-funky'
+nnoremap <Leader>Fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>FU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
+
+let g:ctrlp_extensions = ['funky']
 
 
 
@@ -480,3 +497,12 @@ let autosave=5
 imap jj <Esc>
 nmap ;; <Esc>
 vmap ;; <Esc>
+
+set scrolloff=3
+" 光标移动到buffer的顶部和底部时保持3行距离
+
+set cmdheight=2
+
+set linespace=2
+
+set guifont=Menlo:h12
