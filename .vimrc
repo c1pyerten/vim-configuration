@@ -62,6 +62,8 @@ Bundle 'justinmk/vim-sneak'
 Bundle 'vim-gitgutter'
 Bundle 'godlygeek/tabular'
 "Bundle 'tacahiroy/ctrlp-funky'
+Bundle 'Shougo/unite.vim'
+Bundle 'vim-ctrlspace/vim-ctrlspace'
 "-----------------------------------
 
 " All of your Plugins must be added before the following line
@@ -108,7 +110,7 @@ let Tlist_WinWidt =28					"设置taglist的宽度
 let Tlist_Exit_OnlyWindow=1         	"如果taglist窗口是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window=1			"在右侧窗口中显示taglist窗口
 let Tlist_Auto_Update=1 			"maybe是自动更新tags
-let Tlist_Auto_Open=1				"自动打开？
+"let Tlist_Auto_Open=1				"自动打开？
 "let Tlist_Use_Left_Windo =1        		"在左侧窗口中显示taglist窗口
 "autocmd VimEnter * Tlist           " 自动开启 Tlist
 
@@ -225,12 +227,29 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
+" my Neocomplete Configuration
+let g:neocomplcache_enable_quick_match = 1 
+"inoremap <expr><space>  pumvisible() ? neocomplcache#close_popup() . "\<SPACE>" : "\<SPACE>"
+
+
+
 
 
 
 
 "--------------Nerdcommenter Configuration ---------
 let g:NERDSpaceDelims=1
+
+
+
+
+
+
+
+"-------------Supertab Configuration----------------
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+
 
 
 
@@ -355,8 +374,8 @@ map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
 
 " Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
+map  <Leader><leader>w <Plug>(easymotion-bd-w)
+nmap <Leader><leader>w <Plug>(easymotion-overwin-w)
 
 " ----Integration with incsearch
 " You can use other keymappings like <C-l> instead of <CR> if you want to
@@ -406,7 +425,6 @@ let g:sneak#streak = 1
 
 
 "-----------------Ctrlp-funky Configuration-----
-Bundle 'tacahiroy/ctrlp-funky'
 nnoremap <Leader>Fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>FU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
