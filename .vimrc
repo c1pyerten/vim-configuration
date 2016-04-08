@@ -39,14 +39,14 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
 Bundle 'szw/vim-tags'
-Bundle 'taglist.vim'
+"Bundle 'taglist.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'ervandew/supertab'    
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 Bundle 'sunuslee/vim-plugin-random-colorscheme-picker'
 Bundle 'majutsushi/tagbar'
 Bundle 'ctrlpvim/ctrlp.vim'
@@ -63,7 +63,10 @@ Bundle 'vim-gitgutter'
 Bundle 'godlygeek/tabular'
 "Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'Shougo/unite.vim'
-Bundle 'vim-ctrlspace/vim-ctrlspace'
+"Bundle 'vim-ctrlspace/vim-ctrlspace'
+"Bundle 'powerline/powerline'
+Bundle 'vim-airline/vim-airline-themes'
+Bundle 'vim-airline/vim-airline'
 "-----------------------------------
 
 " All of your Plugins must be added before the following line
@@ -431,6 +434,19 @@ nnoremap <Leader>FU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
 
 let g:ctrlp_extensions = ['funky']
+
+
+
+
+
+"------------------aireline Configuration---------
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+
+
 
 
 
